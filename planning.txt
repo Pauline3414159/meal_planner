@@ -1,0 +1,23 @@
+A simple Meal Planner
+The purpose - to make a create, read, update, delete application, and to test it
+App will allow someone to create a meal plan for one week
+you must sign in to do anything
+you can log out
+
+Each plan has a week
+  each week has seven days
+    you can add a meal
+    you can delete a meal
+    you can see a detailed overview of the whole week
+    you can see a high level overview of the whole week
+
+  each day you can add up to three meals
+    you can add a courses
+    you can delete a course
+    you can rename a course
+
+
+  each meal you can add three courses
+    you can add a dish
+    you can rename a dish
+    you can delete a dish
