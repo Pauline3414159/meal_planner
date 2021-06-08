@@ -9,6 +9,8 @@ class Day
     @day_of_week = day_of_week
     @meals = []
   end
+  attr_accessor :meals
+  attr_reader :day_of_week
 
   def add(meal_type)
     raise StandardError, 'You can only have three meals in a day' if meals.size == 3
@@ -43,5 +45,5 @@ class Day
     str
   end
 
-  attr_accessor :meals
+  
 end

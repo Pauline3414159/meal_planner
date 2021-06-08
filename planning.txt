@@ -21,3 +21,17 @@ Each plan has a week
     you can add a dish
     you can rename a dish
     you can delete a dish
+
+
+
+Index page
+  Show current list 
+  with add a day?
+  each day should be a link to itself
+  print the meal plan
+
+Current day
+  add meals
+  delete meals
+  list the current meals    
+    with drop down to add/view/rename courses

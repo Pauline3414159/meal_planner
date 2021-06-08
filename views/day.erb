@@ -1,3 +1,11 @@
-<article>
-  <p><%= @current_day.day_of_week %></p>
-</article>
+<% if @current_day.meals.empty? %>
+  <p> there are no meals</p>
+<% else %>
+  <ul>
+  <% @current_day.meals.each do |m| %>
+    <li>
+      <%= m.to_s %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
