@@ -30,7 +30,7 @@ class WeekTest < Minitest::Test
     day = Day.new("Sunday")
     day.add("breakfast")
     day.add("lunch")
-    assert_equal "breakfast", day.remove(1).type
+    assert_equal "breakfast", day.remove("breakfast").type
   end
 
   def test_remove_non_existant_meal
@@ -39,43 +39,79 @@ class WeekTest < Minitest::Test
     day.add("lunch")
     second = Day.new("Monday")
     assert_raises ArgumentError do
-      day.remove(5)
+      day.remove("wha")
     end
     assert_raises ArgumentError do
-      second.remove(1)
+      second.remove("breakfast")
     end
 
   end
 
-  def test_retype_meal
-
+  def test_reclassify_meal
+    day = Day.new("Sunday")
+    day.add("breakfast")
+    day.reclassify("breakfast", "lunch")
+    assert_equal "lunch", day.remove("lunch").type
   end
 
-  def test_non_existant_retype_meal
-
+  def test_reclassify_non_existant_meal
+    day = Day.new("Sunday")
+    day.add("breakfast")
+    assert_raises ArgumentError do
+      day.reclassify("dinner", "lunch")
+    end
   end
 
-  def test_repeat_retype_meal
-
+  def test_repeat_reclassify_meal
+    day = Day.new("Sunday")
+    day.add("breakfast")
+    day.add("dinner")
+    assert_raises ArgumentError do
+      day.reclassify("breakfast", "dinner")
+    end
   end
 
   def test_add_course
-
+    a_meal = Meal.new("breakfast")
+    a_meal.add("eggs")
+    a_meal.add("bacon")
+    assert_equal true, a_meal.to_s.include?("eggs")
   end
 
   def test_add_too_many_course
-
+    a_meal = Meal.new("breakfast")
+    a_meal.add("eggs")
+    a_meal.add("bacon")
+    a_meal.add("potato")
+    assert_raises StandardError do
+      a_meal.add("muffin")
+    end
   end
 
   def test_rename_course
-
+    a_meal = Meal.new("breakfast")
+    a_meal.add("eggs")
+    a_meal.add("bacon")
+    a_meal.rename("eggs", "tofu")
+    assert_equal true, a_meal.to_s.include?("tofu")
   end
 
   def test_rename_non_existant_course
-    
+    a_meal = Meal.new("breakfast")
+    assert_raises ArgumentError do
+      a_meal.rename("eggs", "tofu")
+    end
   end
 
-  def test
-    
+  def test_delete_course
+    a_meal = Meal.new("breakfast")
+    a_meal.add("eggs")
+    a_meal.add("bacon")
+    a_meal.remove("eggs")
+    refute a_meal.to_s.include?("eggs")
+    meal_two = Meal.new("lunch")
+    assert_raises ArgumentError do
+      meal_two.remove("food")
+    end
   end
 end

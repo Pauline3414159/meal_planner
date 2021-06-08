@@ -1,6 +1,9 @@
-
-
+# A meal has up to three courses (a string descriptor)
+# you can add, remove, or rename courses
+# a meal has an attribute of type and courses (an array)
 class Meal
+  TYPES = %w[breakfast lunch dinner snack tea brunch].freeze
+
   def initialize(type)
     @type = type
     @courses = []
@@ -9,42 +12,35 @@ class Meal
   attr_accessor :type
 
   def add(course)
-    raise StandardError.new "You can only have three courses in a meal" if courses.size == 3
+    raise StandardError, 'You can only have three courses in a meal' if courses.size == 3
+
     courses << course
   end
 
-  def remove(course_num)
-    unless (1..3).include?(course_num) then raise ArgumentError.new "Enter a number between 1 and 3" end
-    courses.delete_at(course_num-1)
+  def remove(course)
+    raise ArgumentError, 'no courses to delete' if courses.empty?
+    raise ArgumentError, 'Enter a valid course' unless courses.include?(course)
+
+    i_finder = courses.index(course)
+    courses.delete_at(i_finder)
   end
 
-  def rename(course_num, new_dish)
-    unless (1..courses.size).include?(course_num) then raise ArgumentError.new "You can only rename a course that exists" end
-    courses[course_num] = new_dish
+  def rename(course, new_dish)
+    raise ArgumentError, 'Enter a valid course' unless courses.include?(course)
+
+    i_finder = courses.index(course)
+    courses[i_finder] = new_dish
   end
 
   def to_s
     str = "#{type} includes:\n"
     courses.each_with_index do |course, i|
-      str << " Course # #{i+1} : #{course} \n"
+      str << " Course # #{i + 1} : #{course} \n"
     end
     str.chomp
   end
 
   private
+
   attr_accessor :courses
 end
-
-pauline = Meal.new("breakfast")
-
-pauline.add("oatmeal porrige")
-pauline.add("jj")
-pauline.add('oo')
-
-p pauline.remove(3)
-
-pauline.rename(1, "yes")
-
-puts pauline
-
-p pauline.class
