@@ -2,21 +2,19 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require "sinatra/content_for"
 require "tilt/erubis"
+require 'psych'
 require_relative "lib/week.rb"
 
 configure do
   enable :sessions
   set :session_secret, 'secret'
-  set :erb, :escape_html => true
+  set :erb, :escape_html => true  
 end
 
-before do
+DAYS = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
   
-  session[:week] = []
-  %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).each do |day|
-    session[:week] << Day.new(day)
-  end
-end
+  
+
 
 helpers do
   def load_week
@@ -40,8 +38,11 @@ get "/:day" do
   erb :day
 end
 
-post "/:day" do
-  
+post "/:day/add_meal" do
+  @week = load_week
+  i_finder = @week.index { |d| d.day_of_week == params[:day]}
+  session[:week][i_finder].add(params[:type])
+  redirect "/#{params[:day]}"
 end
 
 post "/:day/meal" do

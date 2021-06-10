@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'meal'
+require 'psych'
 
 # each day can hold up to three meals
 # you can add, remove, or reclassify a meal

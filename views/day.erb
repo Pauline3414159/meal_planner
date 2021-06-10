@@ -1,5 +1,47 @@
 <% if @current_day.meals.empty? %>
-  <p> there are no meals</p>
+  <p> there are no meals yet</p>
+  <details>
+  <summary>Add a meal ?</summary>
+  
+    <form action="/<%= @current_day.day_of_week %>/add_meal" method="post">
+      <fieldset>
+        <legend>Select the type of meal to add</legend>
+        <dl>
+          <dt>
+            <label for="breakfast">Breakfast</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="breakfast">
+          </dd>
+          <dt>
+            <label for="lunch">Lunch</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="lunch">
+          </dd>
+          <dt>
+            <label for="dinner">Dinner</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="dinner">
+          </dd>
+          <dt>
+            <label for="snack">Snack</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="snack">
+          </dd>
+          <dt>
+            <label for="brunch">Brunch</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="brunch">
+          </dd>
+        </dl>
+      </fieldset>
+      <button type="submit">Save</button>
+    </form>
+  </details>
 <% else %>
   <ul>
   <% @current_day.meals.each do |m| %>
