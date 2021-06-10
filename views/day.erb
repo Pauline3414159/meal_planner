@@ -11,31 +11,31 @@
             <label for="breakfast">Breakfast</label>
           </dt>
           <dd>
-            <input type="radio" name="type" id="breakfast">
+            <input type="radio" name="type" id="breakfast" value="breakfast">
           </dd>
           <dt>
             <label for="lunch">Lunch</label>
           </dt>
           <dd>
-            <input type="radio" name="type" id="lunch">
+            <input type="radio" name="type" id="lunch" value="lunch">
           </dd>
           <dt>
             <label for="dinner">Dinner</label>
           </dt>
           <dd>
-            <input type="radio" name="type" id="dinner">
+            <input type="radio" name="type" id="dinner" value="dinner">
           </dd>
           <dt>
             <label for="snack">Snack</label>
           </dt>
           <dd>
-            <input type="radio" name="type" id="snack">
+            <input type="radio" name="type" id="snack" value="snack">
           </dd>
           <dt>
             <label for="brunch">Brunch</label>
           </dt>
           <dd>
-            <input type="radio" name="type" id="brunch">
+            <input type="radio" name="type" id="brunch" value="brunch">
           </dd>
         </dl>
       </fieldset>
@@ -46,8 +46,50 @@
   <ul>
   <% @current_day.meals.each do |m| %>
     <li>
-      <%= m.to_s %>
+      <%= m.type %>
     </li>
   <% end %>
   </ul>
+  <details>
+    <summary>Add a meal ?</summary>
+    
+      <form action="/<%= @current_day.day_of_week %>/add_meal" method="post">
+        <fieldset>
+          <legend>Select the type of meal to add</legend>
+          <dl>
+            <dt>
+              <label for="breakfast">Breakfast</label>
+            </dt>
+            <dd>
+              <input type="radio" name="type" id="breakfast" value="breakfast">
+            </dd>
+            <dt>
+              <label for="lunch">Lunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="type" id="lunch" value="lunch">
+            </dd>
+            <dt>
+              <label for="dinner">Dinner</label>
+            </dt>
+            <dd>
+              <input type="radio" name="type" id="dinner" value="dinner">
+            </dd>
+            <dt>
+              <label for="snack">Snack</label>
+            </dt>
+            <dd>
+              <input type="radio" name="type" id="snack" value="snack">
+            </dd>
+            <dt>
+              <label for="brunch">Brunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="type" id="brunch" value="brunch">
+            </dd>
+          </dl>
+        </fieldset>
+        <button type="submit">Save</button>
+      </form>
+    </details>
 <% end %>

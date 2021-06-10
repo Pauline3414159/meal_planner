@@ -1,22 +1,22 @@
 ---
-- !ruby/object:Day
-  day_of_week: Monday
-  meals: []
-- !ruby/object:Day
-  day_of_week: Tuesday
-  meals: []
-- !ruby/object:Day
-  day_of_week: Wednesday
-  meals: []
-- !ruby/object:Day
-  day_of_week: Thursday
-  meals: []
-- !ruby/object:Day
-  day_of_week: Friday
-  meals: []
-- !ruby/object:Day
-  day_of_week: Saturday
-  meals: []
-- !ruby/object:Day
-  day_of_week: Sunday
-  meals: []
+- 
+  :day_of_week: Monday
+  :meals: []
+- 
+  :day_of_week: Tuesday
+  :meals: []
+- 
+  :day_of_week: Wednesday
+  :meals: []
+- 
+  :day_of_week: Thursday
+  :meals: []
+- 
+  :day_of_week: Friday
+  :meals: []
+- 
+  :day_of_week: Saturday
+  :meals: []
+- 
+  :day_of_week: Sunday
+  :meals: []

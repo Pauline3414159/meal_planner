@@ -40,7 +40,7 @@ class Meal
     str.chomp
   end
 
-  private
+  
 
   attr_accessor :courses
 end

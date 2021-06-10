@@ -11,14 +11,23 @@ configure do
   set :erb, :escape_html => true  
 end
 
-DAYS = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
-  
-  
-
+before do
+  @week = Psych.load_file("data/working_week.yaml").map do |d|
+    current = Day.new(d[:day_of_week])
+    current.meals = d[:meals].map { |m| meal_builder(m)}
+    current
+  end
+end
 
 helpers do
-  def load_week
-    session[:week]
+  def meal_parser(meal)
+    {type: meal.type, courses: meal.courses}
+  end
+
+  def meal_builder(hsh)
+    temp = Meal.new(hsh[:type])
+    temp.courses = hsh[:courses]
+    temp
   end
 end
 
@@ -27,21 +36,25 @@ get "/" do
 end
 
 get "/index" do
-  @week = load_week
+  
   erb :index
 end
 
 get "/:day" do
-  @week = load_week
   i_finder = @week.index { |d| d.day_of_week == params[:day]}
   @current_day = @week[i_finder]
   erb :day
 end
 
 post "/:day/add_meal" do
-  @week = load_week
   i_finder = @week.index { |d| d.day_of_week == params[:day]}
-  session[:week][i_finder].add(params[:type])
+  @week[i_finder].add(params[:type])
+  temp = @week.map do |d|
+    {day_of_week: d.day_of_week, meals: d.meals.map{|m| meal_parser(m)}}
+  end
+  File.open("data/working_week.yaml", "w") do |f|
+    f.write(temp.to_yaml)
+  end
   redirect "/#{params[:day]}"
 end
 
