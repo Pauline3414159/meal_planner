@@ -1,0 +1,24 @@
+<% if @week.map {|d| d.meals}.all?([]) %>
+  <p>Click on a day to add meals to your plan</p>
+<% else %>
+<ol>
+  <% @week.each do |d| %>
+    
+      <% if d.meals.empty? %>
+        <% next %>
+      <% else %>
+      <li>
+        <%= d.to_s %>
+      </li>
+    <% end %>
+    
+  <% end %>
+</ol>
+<% end %>
+
+<details>
+  <summary>Reset the entire Meal Plan?</summary>
+  <form action="/clear_all" method="post">
+    <button type="submit">Yes, Reset All</button>
+  </form>
+</details>

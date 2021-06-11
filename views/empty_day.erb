@@ -1,0 +1,43 @@
+<p> there are no meals yet</p>
+  <details>
+  <summary>Add a meal ?</summary>
+  
+    <form action="/<%= @current_day.day_of_week %>/add_meal" method="post">
+      <fieldset>
+        <legend>Select the type of meal to add</legend>
+        <dl>
+          <dt>
+            <label for="add_breakfast">Breakfast</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="add_breakfast" value="breakfast">
+          </dd>
+          <dt>
+            <label for="add_lunch">Lunch</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="add_lunch" value="lunch">
+          </dd>
+          <dt>
+            <label for="add_dinner">Dinner</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="add_dinner" value="dinner">
+          </dd>
+          <dt>
+            <label for="add_snack">Snack</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="add_snack" value="snack">
+          </dd>
+          <dt>
+            <label for="add_brunch">Brunch</label>
+          </dt>
+          <dd>
+            <input type="radio" name="type" id="add_brunch" value="brunch">
+          </dd>
+        </dl>
+      </fieldset>
+      <button type="submit">Save</button>
+    </form>
+  </details>

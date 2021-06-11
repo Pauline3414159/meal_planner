@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "week"
+require_relative "day"
 
 class WeekTest < Minitest::Test
   def test_add_a_meal

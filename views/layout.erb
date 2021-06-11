@@ -10,11 +10,23 @@
   <header>
     <nav>
       <ol>
+        <li><a href="/">Home</a> </li>
         <% @week.each do |day| %>
         <li><a href="/<%= day.day_of_week%>"><%= day.day_of_week%></a></li>
         <% end %>
       </ol>
     </nav>
+    <% if session[:error] %>
+      <div class="flash error">
+        <p><%= session.delete(:error) %></p>
+      </div>
+    <% end %>
+
+    <% if session[:success] %>
+      <div class="flash success">
+        <p><%= session.delete(:success) %></p>
+      </div>
+    <% end %>
   </header>
   <main>
     <%== yield %>

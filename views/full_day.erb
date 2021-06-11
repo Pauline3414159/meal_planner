@@ -1,0 +1,127 @@
+  <ul>
+  <% @current_day.meals.each do |m| %>
+    <li>
+      <a href="<%= @current_day.day_of_week %>/<%= m.type %>"> <%= m.type %></a>
+      
+    </li>
+  <% end %>
+  </ul>
+  <details>
+  <summary>Retype a meal ?</summary>
+  <form action="/<%= @current_day.day_of_week %>/re_type" method="post">
+        <fieldset>
+          <legend>Select the type of meal to retype</legend>
+          <dl>
+            <dt>
+              <label for="re_breakfast">Breakfast</label>
+            </dt>
+            <dd>
+              <input type="radio" name="be_type" id="re_breakfast" value="breakfast">
+            </dd>
+            <dt>
+              <label for="re_lunch">Lunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="be_type" id="re_lunch" value="lunch">
+            </dd>
+            <dt>
+              <label for="re_dinner">Dinner</label>
+            </dt>
+            <dd>
+              <input type="radio" name="be_type" id="re_dinner" value="dinner">
+            </dd>
+            <dt>
+              <label for="re_snack">Snack</label>
+            </dt>
+            <dd>
+              <input type="radio" name="be_type" id="re_snack" value="snack">
+            </dd>
+            <dt>
+              <label for="re_brunch">Brunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="be_type" id="re_brunch" value="brunch">
+            </dd>
+          </dl>
+        </fieldset>
+        <fieldset>
+        <legend>Select the new meal type</legend>
+          <dl>
+            <dt>
+              <label for="new_breakfast">Breakfast</label>
+            </dt>
+            <dd>
+              <input type="radio" name="re_type" id="new_breakfast" value="breakfast">
+            </dd>
+            <dt>
+              <label for="new_lunch">Lunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="re_type" id="new_lunch" value="lunch">
+            </dd>
+            <dt>
+              <label for="new_dinner">Dinner</label>
+            </dt>
+            <dd>
+              <input type="radio" name="re_type" id="new_dinner" value="dinner">
+            </dd>
+            <dt>
+              <label for="new_snack">Snack</label>
+            </dt>
+            <dd>
+              <input type="radio" name="re_type" id="new_snack" value="snack">
+            </dd>
+            <dt>
+              <label for="new_brunch">Brunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="re_type" id="new_brunch" value="brunch">
+            </dd>
+          </dl>
+          <button type="submit">Save</button>
+        </fieldset>
+      </form>
+    </details>
+<details>
+    <summary>Delete a  meal ?</summary>
+    
+      <form action="/<%= @current_day.day_of_week %>/delete_meal" method="post">
+        <fieldset>
+          <legend>Select the type of meal to delete</legend>
+          <dl>
+            <dt>
+              <label for="del_breakfast">Breakfast</label>
+            </dt>
+            <dd>
+              <input type="radio" name="del_type" id="del_breakfast" value="breakfast">
+            </dd>
+            <dt>
+              <label for="del_lunch">Lunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="del_type" id="del_unch" value="lunch">
+            </dd>
+            <dt>
+              <label for="del_dinner">Dinner</label>
+            </dt>
+            <dd>
+              <input type="radio" name="del_type" id="del_dinner" value="dinner">
+            </dd>
+            <dt>
+              <label for="del_snack">Snack</label>
+            </dt>
+            <dd>
+              <input type="radio" name="del_type" id="del_snack" value="snack">
+            </dd>
+            <dt>
+              <label for="del_brunch">Brunch</label>
+            </dt>
+            <dd>
+              <input type="radio" name="del_type" id="del_brunch" value="brunch">
+            </dd>
+          </dl>
+          <button type="submit">Delete</button>
+        </fieldset>
+        
+      </form>
+    </details>
