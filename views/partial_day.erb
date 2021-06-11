@@ -2,7 +2,7 @@
   <ul>
   <% @current_day.meals.each do |m| %>
     <li>
-      <%= m.type %>
+      <a href="<%= @current_day.day_of_week %>/<%= m.type %>"> <%= m.type %></a>
     </li>
   <% end %>
   </ul>
