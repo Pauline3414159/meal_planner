@@ -1,0 +1,19 @@
+<ol>
+  <% @current_meal.courses.each do |course| %>
+    <li>
+      <div class="course container">
+        <p><%= course%></p>
+        <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>/rename_course" method="post">
+          <label for="new_name">New Course name</label>
+          <input type="text" name="new_name" id="new_name" minlength="4" maxlength="250" spellcheck="true">
+          <input type="hidden" name="current_course" value="<%= course %>">
+          <button type="submit">Save new course name</button>
+        </form>
+        <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>/delete_course" method="post">
+          <input type="hidden" name="delete_course" value="<%= course %>">
+          <button type="submit">Delete Course</button>
+        </form>
+      </div>
+    </li>
+  <% end %>
+</ol>

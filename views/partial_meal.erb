@@ -1,0 +1,28 @@
+<ol>
+  <% @current_meal.courses.each do |course| %>
+    <li>
+      <div class="course container">
+        <p><%= course%></p>
+        <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>/rename_course" method="post">
+          <label for="new_name">New Course name</label>
+          <input type="text" name="new_name" id="new_name" minlength="4" maxlength="250" spellcheck="true">
+          <input type="hidden" name="current_course" value="<%= course %>">
+          <button type="submit">Save new course name</button>
+        </form>
+        <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>/delete_course" method="post">
+          <input type="hidden" name="delete_course" value="<%= course %>">
+          <button type="submit">Delete Course</button>
+        </form>
+      </div>
+    </li>
+  <% end %>
+</ol>
+<details>
+  <summary>Add a Course?</summary>
+  <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type%>/add_course" method="post">
+    <legend></legend>
+    <label for="add_course">Decribe your dish</label>
+    <input type="text" spellcheck="true" id="add_course" name="add_course" title="for example, butternut squash soup" required minlength="4" maxlength="150">
+    <button type="submit">Add Course</button>
+  </form>
+</details>
