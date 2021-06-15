@@ -35,3 +35,9 @@ Current day
   delete meals
   list the current meals    
     with drop down to add/view/rename courses
+
+at the course page,
+add a course if empty
+add, rename, or remove
+rename or remove
+link to go back to meal, or day??
