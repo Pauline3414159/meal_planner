@@ -45,6 +45,14 @@ helpers do
     meal_i_finder = day.meals.index { |m| m.type == type }
     day.meals[meal_i_finder]
   end
+
+  def get_avalible_meal_types(day)
+    Meal::TYPES.each_with_object([]) do |type, avaible_meals|
+      unless day.meals.map {|m| m.type}.include?(type)
+        avaible_meals << type
+      end
+    end
+  end
 end
 
 # Create
@@ -94,6 +102,7 @@ end
 
 get '/:day' do
   @current_day = get_day(params[:day])
+  @open_meal_types = get_avalible_meal_types(@current_day)
   if @current_day.meals.empty?
     erb :empty_day
   elsif @current_day.meals.size.between?(1, 2)

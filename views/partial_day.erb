@@ -1,53 +1,25 @@
 
-  <ul>
-  <% @current_day.meals.each do |m| %>
-    <li>
-      <a href="<%= @current_day.day_of_week %>/<%= m.type %>"> <%= m.type %></a>
-    </li>
-  <% end %>
-  </ul>
-  <details>
-    <summary>Add a meal ?</summary>
-    
-      <form action="/<%= @current_day.day_of_week %>/add_meal" method="post">
-        <fieldset>
-          <legend>Select the type of meal to add</legend>
-          <dl>
+   <details>
+  <summary>Add a meal ?</summary>
+  
+    <form action="/<%= @current_day.day_of_week %>/add_meal" method="post">
+      <fieldset>
+        <legend>Select the type of meal to add</legend>
+        <dl>
+          <% @open_meal_types.each do |type| %>
             <dt>
-              <label for="add_breakfast">Breakfast</label>
+              <label for="add_<%= type %>"><%= type %></label>
             </dt>
             <dd>
-              <input type="radio" name="type" id="add_breakfast" value="breakfast">
+              <input type="radio" name="type" id="add_<%= type %>" value="<%= type %>">
             </dd>
-            <dt>
-              <label for="add_lunch">Lunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="type" id="add_lunch" value="lunch">
-            </dd>
-            <dt>
-              <label for="add_dinner">Dinner</label>
-            </dt>
-            <dd>
-              <input type="radio" name="type" id="add_dinner" value="dinner">
-            </dd>
-            <dt>
-              <label for="add_snack">Snack</label>
-            </dt>
-            <dd>
-              <input type="radio" name="type" id="add_snack" value="snack">
-            </dd>
-            <dt>
-              <label for="add_brunch">Brunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="type" id="add_brunch" value="brunch">
-            </dd>
-          </dl>
-          <button type="submit">Save</button>
-        </fieldset>
-      </form>
-    </details>
+          <% end %>
+        </dl>
+      </fieldset>
+      <button type="submit">Save</button>
+    </form>
+  </details>
+  
     <details>
     <summary>Retype a meal ?</summary>
     
@@ -55,71 +27,27 @@
         <fieldset>
           <legend>Select the type of meal to retype</legend>
           <dl>
+            <% @current_day.meals.each do |meal| %>
             <dt>
-              <label for="re_breakfast">Breakfast</label>
+              <label for="be_<%= meal.type%>"><%= meal.type%></label>
             </dt>
             <dd>
-              <input type="radio" name="be_type" id="re_breakfast" value="breakfast">
+              <input type="radio" name="be_type" id="be_<%= meal.type%>" value="<%= meal.type%>">
             </dd>
-            <dt>
-              <label for="re_lunch">Lunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="be_type" id="re_lunch" value="lunch">
-            </dd>
-            <dt>
-              <label for="re_dinner">Dinner</label>
-            </dt>
-            <dd>
-              <input type="radio" name="be_type" id="re_dinner" value="dinner">
-            </dd>
-            <dt>
-              <label for="re_snack">Snack</label>
-            </dt>
-            <dd>
-              <input type="radio" name="be_type" id="re_snack" value="snack">
-            </dd>
-            <dt>
-              <label for="re_brunch">Brunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="be_type" id="re_brunch" value="brunch">
-            </dd>
+            <% end %>
           </dl>
         </fieldset>
         <fieldset>
         <legend>Select the new meal type</legend>
           <dl>
+            <% @open_meal_types.each do |type| %>
             <dt>
-              <label for="new_breakfast">Breakfast</label>
+              <label for="new_<%= type %>"><%= type %></label>
             </dt>
             <dd>
-              <input type="radio" name="re_type" id="new_breakfast" value="breakfast">
+              <input type="radio" name="re_type" id="new_<%= type %>" value="<%= type %>">
             </dd>
-            <dt>
-              <label for="new_lunch">Lunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="re_type" id="new_lunch" value="lunch">
-            </dd>
-            <dt>
-              <label for="new_dinner">Dinner</label>
-            </dt>
-            <dd>
-              <input type="radio" name="re_type" id="new_dinner" value="dinner">
-            </dd>
-            <dt>
-              <label for="new_snack">Snack</label>
-            </dt>
-            <dd>
-              <input type="radio" name="re_type" id="new_snack" value="snack">
-            </dd>
-            <dt>
-              <label for="new_brunch">Brunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="re_type" id="new_brunch" value="brunch">
-            </dd>
+            <% end %>
           </dl>
           <button type="submit">Save</button>
         </fieldset>
@@ -132,39 +60,31 @@
         <fieldset>
           <legend>Select the type of meal to delete</legend>
           <dl>
+            <% @current_day.meals.each do |meal| %>
             <dt>
-              <label for="del_breakfast">Breakfast</label>
+              <label for="del_<%= meal.type %>"><%= meal.type %></label>
             </dt>
             <dd>
-              <input type="radio" name="del_type" id="del_breakfast" value="breakfast">
+              <input type="radio" name="del_type" id="del_<%= meal.type %>" value="<%= meal.type %>">
             </dd>
-            <dt>
-              <label for="del_lunch">Lunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="del_type" id="del_lunch" value="lunch">
-            </dd>
-            <dt>
-              <label for="del_dinner">Dinner</label>
-            </dt>
-            <dd>
-              <input type="radio" name="del_type" id="del_dinner" value="dinner">
-            </dd>
-            <dt>
-              <label for="del_snack">Snack</label>
-            </dt>
-            <dd>
-              <input type="radio" name="del_type" id="del_snack" value="snack">
-            </dd>
-            <dt>
-              <label for="del_brunch">Brunch</label>
-            </dt>
-            <dd>
-              <input type="radio" name="del_type" id="del_brunch" value="brunch">
-            </dd>
+            <% end %>
           </dl>
           <button type="submit">Delete</button>
         </fieldset>
         
       </form>
     </details>
+
+    <% content_for :crumb_nav do %>
+    <a href="/">Home/ </a><a href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
+    <% if @current_day.meals.size >= 1 %>
+      <p>Other meals for today:</p>
+      <ol>
+      <% @current_day.meals.each do |meal| %>
+        <li>
+          <a href="/<%= @current_day.day_of_week %>/<%= meal.type %>"><%= meal.type %></a>
+        </li>
+      <% end %>
+      </ol>
+    <% end %>
+<% end %>
