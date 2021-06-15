@@ -78,7 +78,7 @@
     <% content_for :crumb_nav do %>
     <a href="/">Home/ </a><a href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
     <% if @current_day.meals.size >= 1 %>
-      <p>Other meals for today:</p>
+      <p>Meals for today:</p>
       <ol>
       <% @current_day.meals.each do |meal| %>
         <li>

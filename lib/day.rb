@@ -18,6 +18,7 @@ class Day
     raise ArgumentError, 'You can only have each type of meal once a day' if meals.map(&:type).include?(meal_type)
 
     meals << Meal.new(meal_type)
+    sort_meals!
   end
 
   def remove(meal)
@@ -36,6 +37,7 @@ class Day
     raise ArgumentError, "No such #{meal} to reclassify" if i_finder.nil?
 
     meals[i_finder].type = new_type
+    sort_meals!
   end
 
   def to_s
@@ -46,5 +48,10 @@ class Day
     str
   end
 
-  
+  private
+
+  def sort_meals!
+    meals.sort_by! { |m| Meal::TYPES.index(m.type)}
+  end
+
 end

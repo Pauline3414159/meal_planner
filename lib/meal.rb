@@ -2,7 +2,7 @@
 # you can add, remove, or rename courses
 # a meal has an attribute of type and courses (an array)
 class Meal
-  TYPES = %w[breakfast lunch dinner snack tea brunch].freeze
+  TYPES = %w[breakfast brunch lunch tea dinner snack].freeze
 
   def initialize(type)
     @type = type
@@ -10,7 +10,6 @@ class Meal
   end
 
   attr_accessor :type
-
   def add(course)
     raise StandardError, 'You can only have three courses in a meal' if courses.size == 3
 

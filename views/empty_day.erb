@@ -20,6 +20,6 @@
     </form>
   </details>
 
-  <% content_for :crumb_nav do %>
+<% content_for :crumb_nav do %>
     <a href="/">Home/ </a><a href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
 <% end %>

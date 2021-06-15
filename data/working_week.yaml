@@ -1,19 +1,8 @@
 ---
 - :day_of_week: Monday
-  :meals:
-  - :type: brunch
-    :courses: []
-  - :type: dinner
-    :courses: []
+  :meals: []
 - :day_of_week: Tuesday
-  :meals:
-  - :type: tea
-    :courses:
-    - cakes
-  - :type: dinner
-    :courses:
-    - test
-    - more
+  :meals: []
 - :day_of_week: Wednesday
   :meals: []
 - :day_of_week: Thursday
