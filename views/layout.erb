@@ -15,6 +15,7 @@
         <li><a href="/<%= day.day_of_week%>"><%= day.day_of_week%></a></li>
         <% end %>
       </ol>
+      <%== yield_content :crumb_nav %>
     </nav>
     <% if session[:error] %>
       <div class="flash error">

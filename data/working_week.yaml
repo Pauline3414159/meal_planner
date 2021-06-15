@@ -1,15 +1,23 @@
 ---
 - :day_of_week: Monday
-  :meals:
-  - :type: brunch
-    :courses:
-    - oatmeal
-- :day_of_week: Tuesday
   :meals: []
+- :day_of_week: Tuesday
+  :meals:
+  - :type: breakfast
+    :courses: []
+  - :type: lunch
+    :courses:
+    - sandwhich
+  - :type: dinner
+    :courses:
+    - soup
+    - salad
 - :day_of_week: Wednesday
   :meals: []
 - :day_of_week: Thursday
-  :meals: []
+  :meals:
+  - :type: breakfast
+    :courses: []
 - :day_of_week: Friday
   :meals: []
 - :day_of_week: Saturday

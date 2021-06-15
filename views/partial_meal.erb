@@ -26,3 +26,18 @@
     <button type="submit">Add Course</button>
   </form>
 </details>
+
+<% content_for :crumb_nav do %>
+    <a href="/">Home/ </a><a href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
+    <a href="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>"><%= @current_meal.type %></a>
+    <% if @other_meals.size > 1 %>
+      <p>Other meals for today:</p>
+      <ol>
+      <% @other_meals.each do |meal| %>
+        <li>
+          <a href="/<%= @current_day.day_of_week %>/<%= meal.type %>"><%= meal.type %></a>
+        </li>
+      <% end %>
+      </ol>
+    <% end %>
+<% end %>
