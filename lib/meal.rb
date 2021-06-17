@@ -30,20 +30,5 @@ class Meal
     i_finder = courses.index(course)
     courses[i_finder] = new_dish
   end
-
-  def to_s
-    str = "#{type}"
-    case courses.size
-    when 0
-      str
-    when 1
-      "#{str} includes #{courses.first}"
-    else
-      "#{str} includes #{courses[0..-2].join(", ")} and #{courses.last}"
-    end
-  end
-
-  
-
   attr_accessor :courses
 end

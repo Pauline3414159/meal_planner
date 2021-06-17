@@ -39,19 +39,7 @@ class Day
     meals[i_finder].type = new_type
     sort_meals!
   end
-
-  def to_s
-    str = "#{day_of_week}"
-    case meals.size
-    when 0
-      str
-    when 1
-      "#{str} includes #{meals.first}"
-    else
-      "#{str} includes #{meals[0..-2].join(", ")} and #{meals.last}"
-    end
-  end
-
+  
   private
 
   def sort_meals!

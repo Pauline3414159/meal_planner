@@ -8,7 +8,23 @@
         <% next %>
       <% else %>
       <li>
-        <%= d.to_s %>
+        <a href="/<%= d.day_of_week %>"><%= d.day_of_week %></a>
+        
+        <% d.meals.each do |m| %>
+          <br>
+          <br>
+          <a href="/<%= d.day_of_week %>/<%= m.type %>"><%= m.type %></a>
+          
+          <% next if m.courses.empty? %>
+            <ol>
+            <% m.courses.each do |course| %>
+              <li>
+                <%= course %>
+              </li>
+            <% end %>
+            </ol>
+        <% end %>
+        
       </li>
     <% end %>
     
