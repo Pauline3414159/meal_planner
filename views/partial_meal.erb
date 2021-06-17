@@ -12,10 +12,10 @@ The Courses are:
         
         
         <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>/rename_course" method="post">
-          <label for="new_name">New Course name</label>
+          <label for="new_name">Change current course to: </label>
           <input type="text" name="new_name" id="new_name" minlength="4" maxlength="250" spellcheck="true">
           <input type="hidden" name="current_course" value="<%= course %>">
-          <button type="submit">Save new course name</button>
+          <button type="submit">Save</button>
         </form>
         <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>/delete_course" method="post">
           <input type="hidden" name="delete_course" value="<%= course %>">

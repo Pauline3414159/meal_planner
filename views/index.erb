@@ -1,4 +1,4 @@
-<% if @week.map {|d| d.meals}.all?([]) %>
+<% if @week.map {|d| d.meals.size}.all?(0) %>
   <p>Click on a day to add meals to your plan</p>
 <% else %>
 <ol>
