@@ -2,7 +2,11 @@
 - :day_of_week: Sunday
   :meals: []
 - :day_of_week: Monday
-  :meals: []
+  :meals:
+  - :type: breakfast
+    :courses: []
+  - :type: snack
+    :courses: []
 - :day_of_week: Tuesday
   :meals: []
 - :day_of_week: Wednesday

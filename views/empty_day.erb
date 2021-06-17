@@ -21,5 +21,5 @@
   </details>
 
 <% content_for :crumb_nav do %>
-    <a href="/">Home/ </a><a href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
+    <a class="crumb top" href="/">Home/ </a><a class="crumb day" href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
 <% end %>

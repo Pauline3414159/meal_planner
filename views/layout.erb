@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<%= url('style.css') %>">
   <title>Meal Planning</title>
 </head>
 <body>
   <header>
     <nav>
-      <ol>
-        <li><a href="/">Home</a> </li>
+      <ol class="top_menu">
+        <li class="top_menu_item"><a href="/">Home</a> </li>
         <% @week.each do |day| %>
-        <li><a href="/<%= day.day_of_week%>"><%= day.day_of_week%></a></li>
+        <li class="top_menu_item"><a href="/<%= day.day_of_week%>"><%= day.day_of_week%></a></li>
         <% end %>
       </ol>
       <%== yield_content :crumb_nav %>
