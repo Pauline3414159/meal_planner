@@ -32,11 +32,15 @@ class Meal
   end
 
   def to_s
-    str = "#{type} includes:\n"
-    courses.each_with_index do |course, i|
-      str << " Course # #{i + 1} : #{course} \n"
+    str = "#{type}"
+    case courses.size
+    when 0
+      str
+    when 1
+      "#{str} includes #{courses.first}"
+    else
+      "#{str} includes #{courses[0..-2].join(", ")} and #{courses.last}"
     end
-    str.chomp
   end
 
   

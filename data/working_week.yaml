@@ -1,4 +1,6 @@
 ---
+- :day_of_week: Sunday
+  :meals: []
 - :day_of_week: Monday
   :meals: []
 - :day_of_week: Tuesday
@@ -10,6 +12,4 @@
 - :day_of_week: Friday
   :meals: []
 - :day_of_week: Saturday
-  :meals: []
-- :day_of_week: Sunday
   :meals: []

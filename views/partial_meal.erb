@@ -3,9 +3,14 @@ The Courses are:
 </p>
 <ol>
   <% @current_meal.courses.each do |course| %>
+    
+    <details>
+    <summary><%= course%></summary>
     <li>
+      
       <div class="course container">
-        <p><%= course%></p>
+        
+        
         <form action="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>/rename_course" method="post">
           <label for="new_name">New Course name</label>
           <input type="text" name="new_name" id="new_name" minlength="4" maxlength="250" spellcheck="true">
@@ -16,8 +21,10 @@ The Courses are:
           <input type="hidden" name="delete_course" value="<%= course %>">
           <button type="submit">Delete Course</button>
         </form>
+        
       </div>
     </li>
+    </details>
   <% end %>
 </ol>
 <details>
@@ -36,7 +43,7 @@ The Courses are:
     <% if @current_day.meals.size > 1 %>
       <p>Other meals for today:</p>
       <ol>
-      <% @current_day.meals.each do |meal| %>
+      <% @other_meals.each do |meal| %>
         <li>
           <a href="/<%= @current_day.day_of_week %>/<%= meal.type %>"><%= meal.type %></a>
         </li>

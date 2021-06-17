@@ -41,11 +41,15 @@ class Day
   end
 
   def to_s
-    str = "#{@day_of_week} meals include:\n"
-    meals.each do |meal|
-      str << "\s\s#{meal}\n"
+    str = "#{day_of_week}"
+    case meals.size
+    when 0
+      str
+    when 1
+      "#{str} includes #{meals.first}"
+    else
+      "#{str} includes #{meals[0..-2].join(", ")} and #{meals.last}"
     end
-    str
   end
 
   private
