@@ -1,13 +1,13 @@
 <% if @week.map {|d| d.meals.size}.all?(0) %>
   <p>Click on a day to add meals to your plan</p>
 <% else %>
-<ol>
+<ol class="home_box">
   <% @week.each do |d| %>
     
       <% if d.meals.empty? %>
         <% next %>
       <% else %>
-      <li>
+      <li class="day_box">
         <a href="/<%= d.day_of_week %>"><%= d.day_of_week %></a>
         
         <% d.meals.each do |m| %>
@@ -16,7 +16,7 @@
           <a href="/<%= d.day_of_week %>/<%= m.type %>"><%= m.type %></a>
           
           <% next if m.courses.empty? %>
-            <ol>
+            <ol class="meal_box">
             <% m.courses.each do |course| %>
               <li>
                 <%= course %>
@@ -32,9 +32,9 @@
 </ol>
 <% end %>
 
-<details>
-  <summary>Reset the entire Meal Plan?</summary>
+<details id="reset_all">
+  <summary>Reset Everything?</summary>
   <form action="/clear_all" method="post">
-    <button type="submit">Yes, Reset All</button>
+    <button id="the_red_button" type="submit">Yes, Delete All</button>
   </form>
 </details>

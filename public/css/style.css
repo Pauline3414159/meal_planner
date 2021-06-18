@@ -38,6 +38,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  padding: 2rem;
 }
 ol, ul {
 	list-style: none;
@@ -56,18 +57,21 @@ table {
 }
 
 .top_menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: stretch;
-  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .top_menu_item {
   padding: 1rem;
-  margin: 1rem;
+  
   background-color: blanchedalmond;
   border-radius: .25rem;
+  border: 5px solid black;
+  text-align: center;
 }
 
 .top_menu_item a{
@@ -94,12 +98,49 @@ table {
 
 .crumbs_nav_top {
   display: block;
-  margin: 2rem;
+  padding: 1.5rem;
   background-color: blanchedalmond;
-  padding-left: 2rem;
 }
 
 .crumbs_nav_top a {
   display: inline-block;
-  padding: 1.5rem 0rem;
+}
+
+.home_box {
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.day_box {
+  background-color: blanchedalmond;
+  padding: 1.5rem;
+
+  border-radius: .25rem;
+  border: 5px solid black;
+}
+
+#reset_all {
+  border: 5px solid black;
+  padding: 1.5rem;
+  border-radius: .25rem;
+  width: max-content;
+  margin: 0 auto;
+}
+
+#reset_all form {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+#reset_all button {
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.5);
+  padding: 1.5rem;
+  border: 1px solid black;
+  border-radius: .25rem;
 }
