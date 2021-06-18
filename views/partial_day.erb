@@ -76,7 +76,10 @@
     </details>
 
     <% content_for :crumb_nav do %>
-    <a class="crumb top" href="/">Home/ </a><a class="crumb day" href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
+    <div class="crumbs_nav_top">
+      <a class="crumb top" href="/">Home/ </a><a class="crumb day" href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
+    </div>
+    
     <% if @current_day.meals.size >= 1 %>
       <p>Meals for today:</p>
       <ol>
