@@ -4,10 +4,10 @@
        --><a href="/<%= @current_day.day_of_week %>/<%= @current_meal.type %>"><%= @current_meal.type %></a>
     </div>
     <% if @other_meals.size >= 1 %>
-      <p>Other meals for today:</p>
-      <ol>
+      
+      <ol class="today_meals">
       <% @other_meals.each do |meal| %>
-        <li>
+        <li class="today_meals_item">
           <a href="/<%= @current_day.day_of_week %>/<%= meal.type %>"><%= meal.type %></a>
         </li>
       <% end %>

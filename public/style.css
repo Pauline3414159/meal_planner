@@ -81,10 +81,13 @@ table {
 
 }
 
+
+
 .flash p{
   padding: 1.5rem;
   margin: 2rem;
   border-radius: .25rem;
+  border: 5px solid black;
   
 }
 
@@ -100,6 +103,10 @@ table {
   display: block;
   padding: 1.5rem;
   background-color: blanchedalmond;
+  border: 5px solid black;
+  border-radius: .25rem;
+  width: max-content;
+  margin: 0 auto 1.5rem auto;
 }
 
 .crumbs_nav_top a {
@@ -143,4 +150,57 @@ table {
   padding: 1.5rem;
   border: 1px solid black;
   border-radius: .25rem;
+}
+
+details {
+  margin-bottom: 1.5rem;
+}
+
+form dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+form dd, form dt {
+  display: inline;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.select_container {
+  padding: 1.5rem;
+  background-color: blanchedalmond;
+  border: 5px solid black;
+  border-radius: .25rem;
+  
+}
+
+legend {
+  margin: 1.5rem;
+}
+
+fieldset {
+  border: 1px solid black;
+  border-radius: .25rem;
+  padding: 1.5rem;
+}
+
+.today_meals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.today_meals_item {
+  width: 200px;
+  text-transform: capitalize;
+  padding: 1.5rem;
+  border: 5px solid black;
+  border-radius: .25rem;
+  margin: 1.5rem;
+  text-align: center;
+  background-color: blanchedalmond;
 }

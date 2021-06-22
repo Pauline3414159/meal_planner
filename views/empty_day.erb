@@ -1,4 +1,6 @@
-<p> There are no meals for <%= @current_day.day_of_week %> yet</p>
+<div class="flash">
+  <p> There are no meals for <%= @current_day.day_of_week %> yet</p>
+</div>
   <details>
   <summary>Add a meal ?</summary>
   
@@ -7,16 +9,19 @@
         <legend>Select the type of meal to add</legend>
         <dl>
           <% @open_meal_types.each do |type| %>
-            <dt>
-              <label for="add_<%= type %>"><%= type %></label>
-            </dt>
-            <dd>
-              <input type="radio" name="type" id="add_<%= type %>" value="<%= type %>">
-            </dd>
+            <div class="select_container">
+              <dt>
+                <label for="add_<%= type %>"><%= type %></label>
+              </dt>
+              <dd>
+                <input type="radio" name="type" id="add_<%= type %>" value="<%= type %>">
+              </dd>
+            </div>
           <% end %>
         </dl>
+        <button type="submit">Save</button>
       </fieldset>
-      <button type="submit">Save</button>
+      
     </form>
   </details>
 
