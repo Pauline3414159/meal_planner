@@ -1,0 +1,101 @@
+
+   <details>
+  <summary>Add a meal ?</summary>
+  
+    <form action="/<%= @current_day.day_of_week %>/add_meal" method="post">
+      <fieldset>
+        <legend>Select the type of meal to add</legend>
+        <dl>
+          <% @open_meal_types.each do |type| %>
+            <div class="select_container">
+            <dt>
+              <label for="add_<%= type %>"><%= type %></label>
+            </dt>
+            <dd>
+              <input type="radio" name="type" id="add_<%= type %>" value="<%= type %>">
+            </dd>
+            </div>
+          <% end %>
+        </dl>
+        <button type="submit">Save</button>
+      </fieldset>
+      
+    </form>
+  </details>
+  
+    <details>
+    <summary>Retype a meal ?</summary>
+    
+      <form action="/<%= @current_day.day_of_week %>/re_name_meal" method="post">
+        <fieldset>
+          <legend>Select the type of meal to retype</legend>
+          <dl>
+            <% @current_day.meals.each do |meal| %>
+            <div class="select_container">
+            <dt>
+              <label for="be_<%= meal.type%>"><%= meal.type%></label>
+            </dt>
+            <dd>
+              <input type="radio" name="be_type" id="be_<%= meal.type%>" value="<%= meal.type%>">
+            </dd>
+            </div>
+            <% end %>
+          </dl>
+        </fieldset>
+        <fieldset>
+        <legend>Select the new meal type</legend>
+          <dl>
+            <% @open_meal_types.each do |type| %>
+            <div class="select_container">
+            <dt>
+              <label for="new_<%= type %>"><%= type %></label>
+            </dt>
+            <dd>
+              <input type="radio" name="re_type" id="new_<%= type %>" value="<%= type %>">
+            </dd>
+            </div>
+            <% end %>
+          </dl>
+          <button type="submit">Save</button>
+        </fieldset>
+      </form>
+    </details>
+<details>
+    <summary>Delete a  meal ?</summary>
+    
+      <form action="/<%= @current_day.day_of_week %>/delete_meal" method="post">
+        <fieldset>
+          <legend>Select the type of meal to delete</legend>
+          <dl>
+            <% @current_day.meals.each do |meal| %>
+            <div class="select_container">
+            <dt>
+              <label for="del_<%= meal.type %>"><%= meal.type %></label>
+            </dt>
+            <dd>
+              <input type="radio" name="del_type" id="del_<%= meal.type %>" value="<%= meal.type %>">
+            </dd>
+            </div>
+            <% end %>
+          </dl>
+          <button type="submit">Delete</button>
+        </fieldset>
+        
+      </form>
+    </details>
+
+    <% content_for :crumb_nav do %>
+    <div class="crumbs_nav_top">
+      <a class="crumb top" href="/">Home/ </a><a class="crumb day" href="/<%= @current_day.day_of_week %>"><%= @current_day.day_of_week %>/ </a> 
+    </div>
+    
+    <% if @current_day.meals.size >= 1 %>
+      <ol class="today_meals">
+      <% @current_day.meals.each do |meal| %>
+        <li class="today_meals_item">
+          <a href="/<%= @current_day.day_of_week %>/<%= meal.type %>"><%= meal.type %></a>
+        </li>
+      <% end %>
+      </ol>
+    <% end %>
+<% end %>

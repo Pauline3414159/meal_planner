@@ -1,0 +1,214 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+  padding: 2rem;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.top_menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.top_menu_item {
+  padding: 1rem;
+  
+  background-color: blanchedalmond;
+  border-radius: .25rem;
+  border: 5px solid black;
+  text-align: center;
+}
+
+.top_menu_item a{
+  font-size: x-large;
+  text-decoration: none;
+  padding: 1rem;
+
+}
+
+
+
+.flash p{
+  padding: 1.5rem;
+  margin: 2rem;
+  border-radius: .25rem;
+  border: 5px solid black;
+  
+}
+
+.flash.error p {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.flash.success p {
+  background-color: rgba(46, 139, 86, 0.445);
+}
+
+.crumbs_nav_top {
+  display: block;
+  padding: 1.5rem;
+  background-color: blanchedalmond;
+  border: 5px solid black;
+  border-radius: .25rem;
+  width: max-content;
+  margin: 0 auto 1.5rem auto;
+}
+
+.crumbs_nav_top a {
+  display: inline-block;
+}
+
+.home_box {
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.day_box {
+  background-color: blanchedalmond;
+  padding: 1.5rem;
+
+  border-radius: .25rem;
+  border: 5px solid black;
+}
+
+#reset_all {
+  border: 5px solid black;
+  padding: 1.5rem;
+  border-radius: .25rem;
+  width: max-content;
+  margin: 0 auto;
+}
+
+#reset_all form {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+#reset_all button {
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.5);
+  padding: 1.5rem;
+  border: 1px solid black;
+  border-radius: .25rem;
+}
+
+details {
+  margin-bottom: 1.5rem;
+}
+
+form dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+form dd, form dt {
+  display: inline;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.select_container {
+  padding: 1.5rem;
+  background-color: blanchedalmond;
+  border: 5px solid black;
+  border-radius: .25rem;
+  
+}
+
+legend {
+  margin: 1.5rem;
+}
+
+fieldset {
+  border: 1px solid black;
+  border-radius: .25rem;
+  padding: 1.5rem;
+}
+
+.today_meals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.today_meals_item {
+  width: 200px;
+  text-transform: capitalize;
+  padding: 1.5rem;
+  border: 5px solid black;
+  border-radius: .25rem;
+  margin: 1.5rem;
+  text-align: center;
+  background-color: blanchedalmond;
+}
+
+.course.container {
+  display: flex;
+  padding: 1.5rem;
+  background-color: blanchedalmond;
+  border: 5px solid black;
+  border-radius: .25rem;
+}

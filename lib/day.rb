@@ -1,6 +1,7 @@
-# frozen_string_literal: true
+
 
 require_relative 'meal'
+require 'psych'
 
 # each day can hold up to three meals
 # you can add, remove, or reclassify a meal
@@ -9,12 +10,15 @@ class Day
     @day_of_week = day_of_week
     @meals = []
   end
+  attr_accessor :meals
+  attr_reader :day_of_week
 
   def add(meal_type)
     raise StandardError, 'You can only have three meals in a day' if meals.size == 3
     raise ArgumentError, 'You can only have each type of meal once a day' if meals.map(&:type).include?(meal_type)
 
     meals << Meal.new(meal_type)
+    sort_meals!
   end
 
   def remove(meal)
@@ -33,15 +37,13 @@ class Day
     raise ArgumentError, "No such #{meal} to reclassify" if i_finder.nil?
 
     meals[i_finder].type = new_type
+    sort_meals!
+  end
+  
+  private
+
+  def sort_meals!
+    meals.sort_by! { |m| Meal::TYPES.index(m.type)}
   end
 
-  def to_s
-    str = "#{@day_of_week} meals include:\n"
-    meals.each do |meal|
-      str << "\s\s#{meal}\n"
-    end
-    str
-  end
-
-  attr_accessor :meals
 end

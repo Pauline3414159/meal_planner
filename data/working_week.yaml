@@ -1,0 +1,15 @@
+---
+- :day_of_week: Sunday
+  :meals: []
+- :day_of_week: Monday
+  :meals: []
+- :day_of_week: Tuesday
+  :meals: []
+- :day_of_week: Wednesday
+  :meals: []
+- :day_of_week: Thursday
+  :meals: []
+- :day_of_week: Friday
+  :meals: []
+- :day_of_week: Saturday
+  :meals: []
