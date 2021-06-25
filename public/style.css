@@ -204,3 +204,11 @@ fieldset {
   text-align: center;
   background-color: blanchedalmond;
 }
+
+.course.container {
+  display: flex;
+  padding: 1.5rem;
+  background-color: blanchedalmond;
+  border: 5px solid black;
+  border-radius: .25rem;
+}
