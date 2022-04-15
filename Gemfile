@@ -5,3 +5,4 @@ gem "sinatra-contrib"
 gem 'tilt'
 gem 'erubis'
 gem 'psych'
+gem 'puma'
